@@ -98,14 +98,14 @@ task phpmd (type : Exec, description : "Perform project mess detection using PHP
 	executable 'sh'
 	args '-c',"phpmd ./app \
     xml './phpmd.xml' \
-    --reportfile 'build/reports/phpmd.xml'\
+    --reportfile './build/reports/phpmd.xml'\
     --ignore-violations-on-exit"
 }
 
 task phpcpd (type : Exec, description : "Find duplicate code using PHPCPD and log result in XML format."){
 	executable 'sh'
 	args '-c',"phpcpd \
-    --log-pmd 'build/reports/pmd-cpd.xml' \
+    --log-pmd './build/reports/pmd-cpd.xml' \
     ./app"
 }
 
@@ -113,7 +113,7 @@ task phpcs (type : Exec, description : "Find Coding Standard Violations using PH
 	executable 'sh'
 	args '-c',"phpcs \
     --report=checkstyle \
-    --report-file='build/reports/checkstyle.xml' \
+    --report-file='./build/reports/checkstyle.xml' \
     --standard=PSR2 \
     --extensions=php \
     --ignore=autoload.php \
